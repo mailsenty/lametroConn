@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(la-metro-conn:greet) -->
+    <la-metro-conn:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(la-metro-conn:greet) -->

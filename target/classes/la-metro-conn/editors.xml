@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/la-metro-conn" prefix="la-metro-conn">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="LaMetroConn" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/la-metro-conn/abstractLa-metro-connConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="LaMetroConn: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/la-metro-conn-connector-small.png" localId="config" image="icons/theme.classic/la-metro-conn-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/la-metro-conn/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="La-metro-conn configuration properties.">
+      <group id="la-metro-connGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Greeting message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="reply" caption="Reply" description="Reply message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractla-metro-connconnectorgeneric" description="Interact with La-metro-conn." icon="icons/theme.classic/la-metro-conn-connector-small.png" localId="abstractLa-metro-connConnectorGeneric" image="icons/theme.classic/la-metro-conn-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractLa-metro-connConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/la-metro-conn/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.la-metro-conn" caption="LaMetroConn" description="" icon="icons/theme.classic/la-metro-conn-connector-small.png" localId="la-metro-conn-connector" image="icons/theme.classic/la-metro-conn-connector-large.png" extends="http://www.mulesoft.org/schema/mule/la-metro-conn/abstractLa-metro-connConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="la-metro-connConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="La-metro-conn operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/la-metro-conn/abstractLa-metro-connConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/la-metro-conn/get-all-routes" modeLabel="Get all routes"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/la-metro-conn/get-route" modeLabel="Get route"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Get All Routes" icon="icons/theme.classic/la-metro-conn-connector-small.png" localId="get-all-routes" image="icons/theme.classic/la-metro-conn-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/la-metro-conn/abstractLa-metro-connConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Get Route" icon="icons/theme.classic/la-metro-conn-connector-small.png" localId="get-route" image="icons/theme.classic/la-metro-conn-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/la-metro-conn/abstractLa-metro-connConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="routeNo" caption="Route No" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
